@@ -1,0 +1,2 @@
+导出——neo4j-admin dump --to=E:\daochu.db
+导入——neo4j-admin load --from=E:\daochu.db

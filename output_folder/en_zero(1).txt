@@ -1,0 +1,415 @@
+E:\Anaconda3\envs\docgpt\python.exe E:\docGPT\main.py
+电动汽车充电桩在使用过程中，其主回路会受到电压、电流等应力的直接影响，这也是电动汽车充电桩常见故障发生的主要原因所在。常见的电动汽车充电桩故障根据不能充电的状态可以将其分为两个大类，一是充电桩的电源灯不亮情况下的不能充电，二是充电桩和电动汽车之间的物理连接已经完成且已开启充电情况下的不能充电。
+
+```json
+{
+    "entities": {
+        "Charging pile type": "电动汽车充电桩",
+        "Failure mode": "不能充电的状态",
+        "Failure cause": "电压、电流等应力的直接影响",
+        "Failure effect": "电动汽车充电桩常见故障发生",
+        "Equipment component": "主回路、电源灯、物理连接"
+    },
+    "relationships": {
+        "Cause effect": "电压、电流等应力的直接影响导致",
+        "Happen at": "主回路",
+        "Result in": "电动汽车充电桩常见故障发生"
+    },
+    "triplets": [
+        {
+            "Charging pile type": "电动汽车充电桩",
+            "consist of": "主回路、电源灯、物理连接"
+        },
+        {
+            "Failure mode": "不能充电的状态",
+            "Happen at": "主回路"
+        },
+        {
+            "Failure cause": "电压、电流等应力的直接影响",
+            "Result in": "不能充电的状态"
+        },
+        {
+            "Failure mode": "不能充电的状态",
+            "Cause effect": "电压、电流等应力的直接影响"
+        }
+    ]
+}
+```
+==========================================================================================================================================================
+==========================================================================================================================================================
+==========================================================================================================================================================
+除了上述两大类充电桩故障外，还有下面一些情况：电动汽车充电桩显示需要充电车辆没有正常连接，电池继电器正常闭合情况下但没有电流输出，充电桩电流输出与电动汽车实际需求不一致，充电过程中电子锁意外开启等。
+
+{
+    "entities": {
+        "Charging pile type": "null",
+        "Failure mode": "Electric vehicle not properly connected to charging pile, Relay closed but no current output, Inconsistent current output with vehicle demand, Unexpected opening of electronic lock during charging",
+        "Failure cause": "null",
+        "Failure effect": "null",
+        "Equipment component": "Electric vehicle, Relay, Electronic lock"
+    },
+    "relationships": {
+        "Cause effect": "null",
+        "Happen at": "Electric vehicle, Relay, Electronic lock",
+        "Result in": "null",
+        "consist of": "Electric vehicle, Relay, Electronic lock"
+    },
+    "triplets": [
+        {
+            "Charging pile type": "null",
+            "consist of": "Electric vehicle, Relay, Electronic lock"
+        },
+        {
+            "Failure mode": "Electric vehicle not properly connected to charging pile",
+            "Happen at": "Electric vehicle"
+        },
+        {
+            "Failure mode": "Relay closed but no current output",
+            "Happen at": "Relay"
+        },
+        {
+            "Failure mode": "Inconsistent current output with vehicle demand",
+            "Happen at": "null"
+        },
+        {
+            "Failure mode": "Unexpected opening of electronic lock during charging",
+            "Happen at": "Electronic lock"
+        },
+        {
+            "Failure cause": "null",
+            "Result in": "Electric vehicle not properly connected to charging pile, Relay closed but no current output, Inconsistent current output with vehicle demand, Unexpected opening of electronic lock during charging"
+        }
+    ]
+}
+==========================================================================================================================================================
+==========================================================================================================================================================
+==========================================================================================================================================================
+3.1充电桩电源灯不亮的诊断、检测及应对（1）原因。充电桩电源灯不亮的原因主要有以下三种情况：一是充电电源连接异常，二是交流充电连接不正确，三是充电桩自身的线路问题。
+
+{
+    "entities": {
+        "Charging pile type": null,
+        "Failure mode": "Charging pile power indicator light not on",
+        "Failure cause": [
+            "Abnormal charging power connection",
+            "Incorrect connection of AC charging",
+            "Charging pile's own wiring problem"
+        ],
+        "Failure effect": null,
+        "Equipment component": null
+    },
+    "relationships": {
+        "Cause effect": null,
+        "Happen at": [
+            "Charging pile power indicator light not on"
+        ],
+        "Result in": null,
+        "consist of": null
+    },
+    "triplets": [
+        {
+            "Failure mode": "Charging pile power indicator light not on",
+            "Happen at": "Equipment component"
+        },
+        {
+            "Failure cause": "Abnormal charging power connection",
+            "Result in": "Charging pile power indicator light not on"
+        },
+        {
+            "Failure cause": "Incorrect connection of AC charging",
+            "Result in": "Charging pile power indicator light not on"
+        },
+        {
+            "Failure cause": "Charging pile's own wiring problem",
+            "Result in": "Charging pile power indicator light not on"
+        }
+    ]
+}
+==========================================================================================================================================================
+==========================================================================================================================================================
+==========================================================================================================================================================
+（2）故障诊断、检测及应对。根据充电桩电源灯不亮的可能原因进行具体的诊断、检测，并找出相应的应对方法。第一步，根据充电桩电源灯不亮这种情况，先检查配电柜的总开关，正常工作情况下配电柜的总开关应该是处于闭合状态，若出现断开的情况，则代表出现了故障，这时应该关闭总开关以备后续的检查；第二步，检查配电柜总开关的输出电压，L 线、N 线、PE 线的电压，如果 L 线与 PE 线的电压不是 220 伏特，那么则表明有非正常情况发生，可能电线线路出现了损坏、虚接或断开的情况，这时就需要对电线连接线路进行检查或者更换电源总开关；第三步，对电动汽车充电桩的输入电压进行检查，依然是检查 L 线、N 线与 PE 线的电压，确定 L 线与 PE 线的电压是否为 220 伏特，如果不是，则说明充电桩的电线线路出现了损坏或断开的情况，这时就需要重新更换充电桩的电源开关或连接电线线路。
+
+{
+    "entities": {
+        "Charging pile type": "null",
+        "Failure mode": "Electric power indicator light not on",
+        "Failure cause": ["Damage to wiring or circuit", "Loose connection", "Power switch failure"],
+        "Failure effect": ["Electric power indicator light not on", "Abnormal situation with L line and PE line voltages", "Damaged or disconnected wiring of charging pile"],
+        "Equipment component": ["Distribution cabinet", "Power switch", "Wiring", "Charging pile"]
+    },
+    "relationships": {
+        "Cause effect": "null",
+        "Happen at": ["Distribution cabinet", "Power switch", "Wiring"],
+        "Result in": ["Electric power indicator light not on", "Abnormal situation with L line and PE line voltages", "Damaged or disconnected wiring of charging pile"],
+        "consist of": ["Distribution cabinet - Power switch, Wiring", "Charging pile - Wiring"]
+    },
+    "triplets": [
+        ("Charging pile type", "consist of", "Equipment component"),
+        ("Failure mode", "Happen at", "Equipment component"),
+        ("Failure cause", "Result in", "Failure mode"),
+        ("Failure effect", "Result in", "Failure mode")
+    ]
+}
+==========================================================================================================================================================
+==========================================================================================================================================================
+==========================================================================================================================================================
+3.2充电桩与电动汽车连接正常但不能充电的诊断、检测及应对第二类故障，即充电桩和电动汽车之间的物理连接已经完成且已开启充电情况下的不能充电，这种情况下，充电桩的电源供电状态正常，且充电桩插头与电动汽车电池接口连接正常，这种状况可以从以下几个具体特征来进行诊断、检测和应对。（1）系统显示数据为 0，但实际上充电状态正常。这种情况发生的可能原因是充电桩与充电监测系统之间的数据通信与传输出现了故障，这时可以采取以下三种方法予以应对：一是关闭主监控系统和相关服务器软件，然后从新启动；二是重新启动充电桩的显示系统；三是关闭并重新开启充电桩的充电系统程序。
+
+{
+    "entities": {
+        "Charging pile type": null,
+        "Failure mode": "充电状态异常的诊断",
+        "Failure cause": "充电桩与充电监测系统数据通信故障",
+        "Failure effect": null,
+        "Equipment component": ["电源供电状态", "充电插头", "电动汽车电池接口"]
+    },
+    "relationships": {
+        "Cause effect": null,
+        "Happen at": null,
+        "Result in": "Failure mode",
+        "consist of": null
+    },
+    "triplets": [
+        {
+            "Charging pile type": null,
+            "consist of": ["电源供电状态", "充电插头", "电动汽车电池接口"]
+        },
+        {
+            "Failure mode": "充电状态异常的诊断",
+            "Happen at": null,
+            "Equipment component": ["电源供电状态", "充电插头", "电动汽车电池接口"]
+        },
+        {
+            "Failure mode": "充电状态异常的诊断",
+            "Cause effect": "Failure cause",
+            "Failure effect": null
+        },
+        {
+            "Failure cause": "充电桩与充电监测系统数据通信故障",
+            "Result in": "充电状态异常的诊断",
+            "Failure mode": null
+        }
+    ]
+}
+==========================================================================================================================================================
+==========================================================================================================================================================
+==========================================================================================================================================================
+（2）充电状态下的充电电流小于 20 安培，出现这种情况的原因是充电桩的充电程序或显示系统出现了故障，这时可以采取的应对策略有：一是重新启动充电桩的显示屏程序；二是断开电源并重新开启电源来重新启动充电桩的充电系统和相关程序；三是重装充电桩显示系统程序。
+
+{
+    "entities": {
+        "Charging pile type": "null",
+        "Failure mode": "Charging current less than 20A in charging state",
+        "Failure cause": "Charging pile charging program or display system malfunction",
+        "Failure effect": "null",
+        "Equipment component": ["Charging pile display screen program", "Charging system", "Related program"]
+    },
+    "relationships": {
+        "Cause effect": "null",
+        "Happen at": "null",
+        "Result in": "null",
+        "consist of": "null"
+    },
+    "triplets": [
+        {
+            "Charging pile type": "null",
+            "consist of": "Equipment component"
+        },
+        {
+            "Failure mode": "Happen at",
+            "Equipment component": "Charging pile display screen program"
+        },
+        {
+            "Failure mode": "Cause effect",
+            "Failure effect": "null"
+        },
+        {
+            "Failure cause": "Result in",
+            "Failure mode": "Charging current less than 20A in charging state"
+        }
+    ]
+}
+==========================================================================================================================================================
+==========================================================================================================================================================
+==========================================================================================================================================================
+（3）不能进行正常充电或者系统界面不能进行充电行为操作，出现这种故障的原因是充电桩与相关监测系统之间出现了通信和数据传输问题，这时可以采取的应对措施有：一是对充电桩的各参数设置进行检查，确定参数值是否在允许的范围内；二是断开电源并重新启动充电桩的显示系统程序；三是重新更换或安装充电桩的显示屏及其相关的充电程序系统。
+
+{
+    "entities": {
+        "Charging pile type": null,
+        "Failure mode": "System interface unable to operate charging behavior",
+        "Failure cause": "Communication and data transmission issues between charging pile and related monitoring system",
+        "Failure effect": "Unable to charge normally or operate charging behavior",
+        "Equipment component": ["Charging pile", "Display screen", "Charging program system"]
+    },
+    "relationships": {
+        "Cause effect": null,
+        "Happen at": ["Communication and data transmission issues"],
+        "Result in": ["System interface unable to operate charging behavior"]
+    },
+    "triplets": [
+        {
+            "Charging pile type": null,
+            "consist of": ["Charging pile", "Display screen", "Charging program system"]
+        },
+        {
+            "Failure mode": "System interface unable to operate charging behavior",
+            "Happen at": "Communication and data transmission issues"
+        },
+        {
+            "Failure cause": "Communication and data transmission issues",
+            "Result in": "System interface unable to operate charging behavior"
+        }
+    ]
+}
+==========================================================================================================================================================
+==========================================================================================================================================================
+==========================================================================================================================================================
+（4）充电桩显示系统重启后无法与电池管理系统（BMS）之间进行数据传输与通信，出现这种故障的原因是充电桩与相关监测系统之间的数据通信或传输出现了问题，这时可以采取的应对措施包括：一是断开电源并重新启动充电桩显示系统程序；二是重新更换或安装充电桩显示屏及相关的充电系统程序；三是考虑更换 CAN 总线模块。
+
+{
+    "entities": {
+        "Charging pile type": null,
+        "Failure mode": "Communication failure",
+        "Failure cause": "Data communication issue",
+        "Failure effect": null,
+        "Equipment component": ["Charging pile display system", "Battery Management System (BMS)", "Monitoring system", "CAN bus module"]
+    },
+    "relationships": {
+        "Cause effect": null,
+        "Happen at": ["Charging pile display system", "Monitoring system"],
+        "Result in": "Communication failure",
+        "consist of": null
+    },
+    "triplets": [
+        ["Failure mode", "Happen at", "Charging pile display system"],
+        ["Failure mode", "Happen at", "Monitoring system"],
+        ["Failure cause", "Result in", "Communication failure"]
+    ]
+}
+==========================================================================================================================================================
+==========================================================================================================================================================
+==========================================================================================================================================================
+（5）电池管理系统（BMS）的工作状态和充电电压都正常，但充电电流显示为 0，这种情况可能是暂停充电按钮被意外按下所引发的误操作，这时可以采取的应对措施包括：一是解除暂停状态，使充电桩重新工作；二是检查电动汽车的电池管理系统（BMS）和电池组有无异常。
+
+{
+    "entities": {
+        "Charging pile type": null,
+        "Failure mode": "Charging current showing as 0",
+        "Failure cause": "Pause charging button accidentally pressed",
+        "Failure effect": "Charging pile not working",
+        "Equipment component": ["Battery Management System (BMS)", "Charging pile"]
+    },
+    "relationships": {
+        "Cause effect": null,
+        "Happen at": ["Battery Management System (BMS)", "Charging pile"],
+        "Result in": null,
+        "consist of": null
+    },
+    "triplets": [
+        ["Failure mode", "Happen at", "Equipment component"],
+        ["Failure cause", "Result in", "Failure mode"]
+    ]
+}
+==========================================================================================================================================================
+==========================================================================================================================================================
+==========================================================================================================================================================
+（6）电池管理系统（BMS）正常工作，充电电压显示为 0，这可能是由于充电暂停按钮被错误地操作，这种情况下可以采取的应对措施有：一是解除充电桩暂停状态，使之重新工作；二是检查电动汽车的电池管理系统（BMS）和电池组有无异常。
+
+{
+    "entities": {
+        "Charging pile type": "null",
+        "Failure mode": "Charging voltage showing as 0",
+        "Failure cause": "Charging pause button incorrectly operated",
+        "Failure effect": "Charging pile stops working",
+        "Equipment component": "Battery Management System (BMS)"
+    },
+    "relationships": {
+        "Cause effect": "null",
+        "Happen at": "null",
+        "Result in": "null",
+        "consist of": "null"
+    },
+    "triplets": [
+        {
+            "Failure mode": "Charging voltage showing as 0",
+            "Cause effect": "Charging pause button incorrectly operated",
+            "Failure effect": "Charging pile stops working"
+        },
+        {
+            "Failure cause": "Charging pause button incorrectly operated",
+            "Result in": "Charging voltage showing as 0",
+            "Failure mode": "Charging voltage showing as 0"
+        }
+    ]
+}
+==========================================================================================================================================================
+==========================================================================================================================================================
+==========================================================================================================================================================
+（7）电池管理系统（BMS）正常工作，但充电电压和充电电流异常，电压持续变化、电流为 0，导致这一问题的可能原因是充电桩的充电模块发生了故障，这时可以采取的应对措施主要是更换重新安装充电桩充电模块。
+
+{
+    "entities": {
+        "Charging pile type": "null",
+        "Failure mode": "abnormal charging voltage and current",
+        "Failure cause": "charging module failure",
+        "Failure effect": "charging voltage continuously changing, current 0",
+        "Equipment component": "charging module"
+    },
+    "relationships": {
+        "Cause effect": "null",
+        "Happen at": "charging module",
+        "Result in": "charging module"
+    },
+    "triplets": [
+        {
+            "Charging pile type": "null",
+            "consist of": "charging module",
+            "Equipment component": "charging module"
+        },
+        {
+            "Failure mode": "abnormal charging voltage and current",
+            "Happen at": "charging module",
+            "Equipment component": "charging module"
+        },
+        {
+            "Failure mode": "abnormal charging voltage and current",
+            "Cause effect": "charging module",
+            "Failure effect": "charging voltage continuously changing, current 0"
+        },
+        {
+            "Failure cause": "charging module failure",
+            "Result in": "abnormal charging voltage and current",
+            "Failure mode": "abnormal charging voltage and current"
+        }
+    ]
+}
+==========================================================================================================================================================
+==========================================================================================================================================================
+==========================================================================================================================================================
+3.3  自动排产功能智能文印系统还具备自动排产功能，该功能可依据用户权限任务、纸张类型、文印设备种类、设备使用情况等，遵循安全使用与负载均衡两大原则来派发任务，这样不仅使任务的排队时间得到有效减少，也能使设备的利用效率得到进一步提高。在任务发起过程中，用户需要对任务的涉密性、装订要求、纸张规格、彩打等内容进行填写，智能文印管理系统会对任务进行审核，并依据具体信息来对相应的子任务进行分解，待任务打印完毕以后，利用条码来对子任务和大任务进行标识，以便于装订过程中对不同设备打印的纸件进行组合。
+
+```json
+{
+    "entities": {
+        "Equipment component": "智能文印系统",
+        "Failure mode": "null",
+        "Failure cause": "null",
+        "Failure effect": "null",
+        "Charging pile type": "null"
+    },
+    "relationships": {
+        "Cause effect": "null",
+        "Happen at": "null",
+        "Result in": "null",
+        "consist of": "null"
+    },
+    "triplets": []
+}
+```
+==========================================================================================================================================================
+==========================================================================================================================================================
+==========================================================================================================================================================
+
+Process finished with exit code 0
